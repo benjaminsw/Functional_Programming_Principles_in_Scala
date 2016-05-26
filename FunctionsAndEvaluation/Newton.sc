@@ -1,18 +1,18 @@
 //scala code for applying Newton's method to approximate square root of digit
 def sqrt(x:Double)= {
 
-  def sqrtIter(guess:Double, x:Double):Double =
-    if(isGoodEnough(guess,x))guess
-    else sqrtIter(improve(guess,x),x)
+  def sqrtIter(guess:Double):Double =
+    if(isGoodEnough(guess))guess
+    else sqrtIter(improve(guess))
 
-  def isGoodEnough(guess:Double, x:Double)=
+  def isGoodEnough(guess:Double)=
     math.abs(guess*guess-x)/x<0.001
 
-  def improve(guess:Double, x:Double)=
+  def improve(guess:Double)=
     (guess+x/guess)/2
 
   //return value
-  sqrtIter(1.0,x)
+  sqrtIter(1.0)
 
 }
 
